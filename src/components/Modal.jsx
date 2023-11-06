@@ -4,7 +4,13 @@ import { motion } from 'framer-motion'
 export default function Modal({ title, children, onClose }) {
   return createPortal(
     <>
-      <div className="backdrop" onClick={onClose} />
+      <motion.div
+        className="backdrop"
+        onClick={onClose}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      />
       <motion.dialog
         open
         className="modal"
