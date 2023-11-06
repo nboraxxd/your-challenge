@@ -1,7 +1,7 @@
 import { useContext } from 'react'
+import { motion } from 'framer-motion'
 
 import { ChallengesContext } from '../store/challenges-context.jsx'
-import clsx from 'clsx'
 
 export default function ChallengeItem({ challenge, onViewDetails, isExpanded }) {
   const { updateChallengeStatus } = useContext(ChallengesContext)
@@ -36,10 +36,16 @@ export default function ChallengeItem({ challenge, onViewDetails, isExpanded }) 
             </p>
           </div>
         </header>
-        <div className={clsx('challenge-item-details', { expanded: isExpanded })}>
+        <div className="challenge-item-details">
           <p>
             <button onClick={onViewDetails}>
-              View Details <span className="challenge-item-details-icon">&#9650;</span>
+              View Details{' '}
+              <motion.span
+                className="challenge-item-details-icon"
+                animate={{ rotate: isExpanded ? 180 : 0 }}
+              >
+                &#9650;
+              </motion.span>
             </button>
           </p>
 
