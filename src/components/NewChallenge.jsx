@@ -57,7 +57,12 @@ export default function NewChallenge({ onDone }) {
           <input ref={deadline} type="date" name="deadline" id="deadline" />
         </p>
 
-        <ul id="new-challenge-images">
+        {/* Staggering Animations */}
+        {/* staggerChildren nhằm mục đích để cách phần tử con xuất hiện step-by-step với thời gian là value của nó */}
+        <motion.ul
+          id="new-challenge-images"
+          variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
+        >
           {images.map(image => (
             <motion.li
               key={image.alt}
@@ -73,7 +78,7 @@ export default function NewChallenge({ onDone }) {
               <img {...image} />
             </motion.li>
           ))}
-        </ul>
+        </motion.ul>
 
         <p className="new-challenge-actions">
           <button type="button" onClick={onDone}>
