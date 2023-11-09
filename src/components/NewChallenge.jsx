@@ -36,7 +36,7 @@ export default function NewChallenge({ onDone }) {
     ) {
       animate(
         'input, textarea',
-        { x: [-10, 0, 10], borderColor: 'red' },
+        { x: [-10, 0, 10] },
         { type: 'spring', duration: 0.2, delay: stagger(0.02) }
       )
       return

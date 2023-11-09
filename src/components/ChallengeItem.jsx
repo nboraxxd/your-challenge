@@ -21,7 +21,7 @@ export default function ChallengeItem({ challenge, onViewDetails, isExpanded }) 
   }
 
   return (
-    <li>
+    <motion.li layout>
       <article className="challenge-item">
         <header>
           <img {...challenge.image} />
@@ -40,10 +40,7 @@ export default function ChallengeItem({ challenge, onViewDetails, isExpanded }) 
           <p>
             <button onClick={onViewDetails}>
               View Details{' '}
-              <motion.span
-                className="challenge-item-details-icon"
-                animate={{ rotate: isExpanded ? 180 : 0 }}
-              >
+              <motion.span className="challenge-item-details-icon" animate={{ rotate: isExpanded ? 180 : 0 }}>
                 &#9650;
               </motion.span>
             </button>
@@ -56,6 +53,6 @@ export default function ChallengeItem({ challenge, onViewDetails, isExpanded }) 
           )}
         </div>
       </article>
-    </li>
+    </motion.li>
   )
 }
