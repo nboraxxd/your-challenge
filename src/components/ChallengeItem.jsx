@@ -21,7 +21,7 @@ export default function ChallengeItem({ challenge, onViewDetails, isExpanded }) 
   }
 
   return (
-    <motion.li layout>
+    <motion.li layout="position" exit={{ y: -30, opacity: 0 }}>
       <article className="challenge-item">
         <header>
           <img {...challenge.image} />
