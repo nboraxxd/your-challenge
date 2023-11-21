@@ -43,6 +43,7 @@ export default function ChallengeItem({ challenge, onViewDetails, isExpanded }) 
                 initial={false}
                 animate={{ rotate: isExpanded ? 180 : 0 }}
                 className="challenge-item-details-icon"
+                transition={{ duration: 0.2 }}
               >
                 &#9650;
               </motion.span>
