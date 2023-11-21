@@ -1,41 +1,36 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react'
 
-import { ChallengesContext } from '../store/challenges-context.jsx';
-import Modal from './Modal.jsx';
-import images from '../assets/images.js';
+import { ChallengesContext } from '../store/challenges-context.jsx'
+import Modal from './Modal.jsx'
+import images from '../assets/images.js'
 
 export default function NewChallenge({ onDone }) {
-  const title = useRef();
-  const description = useRef();
-  const deadline = useRef();
+  const title = useRef()
+  const description = useRef()
+  const deadline = useRef()
 
-  const [selectedImage, setSelectedImage] = useState(null);
-  const { addChallenge } = useContext(ChallengesContext);
+  const [selectedImage, setSelectedImage] = useState(null)
+  const { addChallenge } = useContext(ChallengesContext)
 
   function handleSelectImage(image) {
-    setSelectedImage(image);
+    setSelectedImage(image)
   }
 
   function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
     const challenge = {
       title: title.current.value,
       description: description.current.value,
       deadline: deadline.current.value,
       image: selectedImage,
-    };
-
-    if (
-      !challenge.title.trim() ||
-      !challenge.description.trim() ||
-      !challenge.deadline.trim() ||
-      !challenge.image
-    ) {
-      return;
     }
 
-    onDone();
-    addChallenge(challenge);
+    if (!challenge.title.trim() || !challenge.description.trim() || !challenge.deadline.trim() || !challenge.image) {
+      return
+    }
+
+    onDone()
+    addChallenge(challenge)
   }
 
   return (
@@ -76,5 +71,5 @@ export default function NewChallenge({ onDone }) {
         </p>
       </form>
     </Modal>
-  );
+  )
 }
